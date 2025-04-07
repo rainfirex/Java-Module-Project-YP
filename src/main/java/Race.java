@@ -50,6 +50,7 @@ public class Race {
     public void initMembers(){
         String title = "";
         int speed = 0;
+
         while (members.size() < maxMember){
 
             int numMember = members.size() +1;
@@ -72,7 +73,7 @@ public class Race {
             if (scanner.hasNextInt()){
                 int speedRaw = scanner.nextInt();
 
-                if(speedRaw <= minLenVehicleSpeed || speedRaw >= maxLenVehicleSpeed){
+                if(speedRaw < minLenVehicleSpeed || speedRaw > maxLenVehicleSpeed){
                     System.out.printf("%sСкорость неправильная, попробуйте еще раз.%s\n", Utils.RED, Utils.RESET);
                     continue;
                 }
@@ -91,7 +92,6 @@ public class Race {
             System.out.printf("%sАвтомобиль добавлен!%s\n\n",  Utils.GREEN, Utils.RESET);
 
             title = "";
-            //speed = 0;
         }
 
         System.out.printf("Автомобилей в гонке - %d\n", members.size());
